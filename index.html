@@ -17,12 +17,13 @@
         body {
             margin: 0;
             background: #f4f6f9;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
             color: #333;
         }
 
         .container {
-            max-width: 760px;
+            max-width: 1180px;
             margin: 40px auto;
             background: #ffffff;
             border-radius: 14px;
@@ -61,7 +62,6 @@
         }
 
         .button {
-
             display: inline-block;
             background: #007AFF;
             color: white;
@@ -71,75 +71,172 @@
             font-size: 20px;
             font-weight: 600;
             transition: background .25s ease;
-
         }
 
         .button:hover {
-
             background: #005FCC;
-
         }
 
         .time {
-
             margin-top: 15px;
             color: #666;
             font-size: 15px;
-
         }
 
-        h2 {
+        /* ==============================
+           Instructions Layout
+           ============================== */
 
+        .instructions-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 400px;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .instructions-text h2 {
             color: #222;
-
+            margin-top: 0;
+            margin-bottom: 20px;
         }
 
         ol {
-
             line-height: 1.9;
             padding-left: 22px;
-
+            margin-top: 0;
         }
 
         li {
-
             margin-bottom: 10px;
-
         }
 
-        .note {
+        /* ==============================
+           GIF Panel
+           ============================== */
 
+        .gif-container {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 18px;
+            text-align: center;
+
+            position: sticky;
+            top: 25px;
+        }
+
+        .gif-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .instruction-gif {
+            width: 100%;
+            max-width: 340px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .gif-caption {
+            margin-top: 15px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* ==============================
+           Important Note
+           ============================== */
+
+        .note {
             margin-top: 35px;
             background: #EEF6FF;
             border-left: 5px solid #007AFF;
             padding: 20px;
             border-radius: 8px;
             line-height: 1.7;
-
         }
 
-        .footer {
+        /* ==============================
+           Footer
+           ============================== */
 
+        .footer {
             margin-top: 40px;
             text-align: center;
             color: #888;
             font-size: 14px;
+        }
+
+        /* ==============================
+           Tablet
+           ============================== */
+
+        @media (max-width: 850px) {
+
+            .container {
+                margin: 20px;
+                padding: 30px;
+            }
+
+            .instructions-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .gif-container {
+                position: static;
+                max-width: 500px;
+                margin: 0 auto;
+                width: 100%;
+            }
 
         }
 
-        @media (max-width:700px){
+        /* ==============================
+           Mobile
+           ============================== */
 
-            .container{
+        @media (max-width: 600px) {
 
-                margin:15px;
-                padding:30px;
-
+            .container {
+                margin: 10px;
+                padding: 25px 20px;
+                border-radius: 12px;
             }
 
-            .button{
+            .logo {
+                margin-bottom: 20px;
+            }
 
-                width:100%;
+            .logo img {
+                max-width: 200px;
+            }
 
+            h1 {
+                font-size: 28px;
+            }
+
+            .intro {
+                font-size: 16px;
+            }
+
+            .button {
+                width: 100%;
+                padding: 17px 20px;
+                font-size: 18px;
+            }
+
+            .instructions-layout {
+                gap: 25px;
+            }
+
+            .gif-container {
+                padding: 12px;
             }
 
         }
@@ -148,15 +245,26 @@
 
 </head>
 
+
 <body>
 
 <div class="container">
+
+
+    <!-- ==============================
+         Logo
+         ============================== -->
 
     <div class="logo">
 
         <img src="Na Hoku Logo.png" alt="Na Hoku">
 
     </div>
+
+
+    <!-- ==============================
+         Page Header
+         ============================== -->
 
     <h1>Welcome to Na Hoku Secure Wi-Fi</h1>
 
@@ -168,9 +276,18 @@
 
     </div>
 
+
+    <!-- ==============================
+         Download Button
+         ============================== -->
+
     <div class="download">
 
-        <a class="button" href="NHstores.mobileconfig" download>
+        <a
+            class="button"
+            href="NHstores.mobileconfig"
+            download
+        >
 
             ⬇ Download Wi-Fi Profile
 
@@ -184,58 +301,152 @@
 
     </div>
 
-    <h2>Installation Instructions</h2>
 
-    <ol>
+    <!-- ==============================
+         Instructions + GIF
+         ============================== -->
 
-        <li>Tap <strong>Download Wi-Fi Profile</strong>.</li>
+    <div class="instructions-layout">
 
-        <li>When prompted, tap <strong>Allow</strong> to download the Wi-Fi configuration profile.</li>
 
-        <li>After the download is complete, tap <strong>Close</strong>.</li>
+        <!-- ==============================
+             Text Instructions
+             ============================== -->
 
-        <li>Open the <strong>Settings</strong> app.</li>
+        <div class="instructions-text">
 
-        <li>
-            Tap <strong>Profile Downloaded</strong> near the top of the screen.
-            If you don't see this option, go to
-            <strong>Settings → General → VPN & Device Management</strong>
-            and select the downloaded profile.
-        </li>
+            <h2>Installation Instructions</h2>
 
-        <li>Tap <strong>Install</strong>.</li>
+            <ol>
 
-        <li>Enter your iPhone passcode if prompted.</li>
+                <li>
+                    Tap <strong>Download Wi-Fi Profile</strong>.
+                </li>
 
-        <li>Tap <strong>Install</strong> again to confirm.</li>
+                <li>
+                    When prompted, tap <strong>Allow</strong>
+                    to download the Wi-Fi configuration profile.
+                </li>
 
-        <li>
-            Once the installation is complete, your iPhone will automatically connect to the
-            secure <strong>NHStores</strong> wireless network whenever it is available.
-        </li>
+                <li>
+                    After the download is complete,
+                    tap <strong>Close</strong>.
+                </li>
 
-    </ol>
+                <li>
+                    Open the <strong>Settings</strong> app.
+                </li>
 
-    <div class="note">
+                <li>
 
-        <strong>Important</strong><br><br>
+                    Tap <strong>Profile Downloaded</strong>
+                    near the top of the screen.
 
-        • The Wi-Fi profile only configures your device to connect to the secure
-        <strong>NHStores</strong> wireless network.<br><br>
+                    If you don't see this option, go to
 
-        • You may be prompted to authenticate with your
-        <strong>Na Hoku Microsoft account</strong> the first time you connect.<br><br>
+                    <strong>
+                        Settings → General → VPN & Device Management
+                    </strong>
 
-        • After the profile is installed, your iPhone will automatically reconnect
-        whenever the <strong>NHStores</strong> network is available.
+                    and select the downloaded profile.
+
+                </li>
+
+                <li>
+                    Tap <strong>Install</strong>.
+                </li>
+
+                <li>
+                    Enter your iPhone passcode if prompted.
+                </li>
+
+                <li>
+                    Tap <strong>Install</strong> again to confirm.
+                </li>
+
+                <li>
+
+                    Once the installation is complete,
+                    your iPhone will automatically connect to the
+                    secure <strong>NHStores</strong> wireless network
+                    whenever it is available.
+
+                </li>
+
+            </ol>
+
+
+            <!-- ==============================
+                 Important Note
+                 ============================== -->
+
+            <div class="note">
+
+                <strong>Important</strong>
+
+                <br><br>
+
+                • The Wi-Fi profile only configures your device
+                to connect to the secure
+                <strong>NHStores</strong> wireless network.
+
+                <br><br>
+
+                • You may be prompted to authenticate with your
+                <strong>Na Hoku Microsoft account</strong>
+                the first time you connect.
+
+                <br><br>
+
+                • After the profile is installed, your iPhone
+                will automatically reconnect whenever the
+                <strong>NHStores</strong> network is available.
+
+            </div>
+
+        </div>
+
+
+        <!-- ==============================
+             Animated Instructions
+             ============================== -->
+
+        <div class="gif-container">
+
+            <div class="gif-title">
+
+                Visual Instructions
+
+            </div>
+
+            <img
+                src="NaHoku_Instructions_Complete.gif"
+                alt="Visual Wi-Fi installation instructions"
+                class="instruction-gif"
+            >
+
+            <div class="gif-caption">
+
+                Follow along with the animation to see
+                each step on your iPhone.
+
+            </div>
+
+        </div>
 
     </div>
+
+
+    <!-- ==============================
+         Footer
+         ============================== -->
 
     <div class="footer">
 
         © Na Hoku, Inc.
 
     </div>
+
 
 </div>
 
